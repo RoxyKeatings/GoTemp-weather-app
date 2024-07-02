@@ -1,6 +1,9 @@
 .Weather {
   border: 1px solid lightsalmon;
 }
+.Weather h1 {
+  font-weight: 700;
+}
 li {
   list-style: none;
 }
