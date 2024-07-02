@@ -9,15 +9,19 @@ export default function Weather() {
             <input
               type="search"
               placeholder="Enter a city..."
-              className="form-search"
+              className="form-search w-100"
             />
           </div>
           <div className="col-3">
-            <input type="submit" value="Search" className="btn btn-warning" />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-warning w-100"
+            />
           </div>
         </div>
       </form>
-      <h1>London</h1>
+      <h1>London,Canada</h1>
       <ul>
         {" "}
         <li>Tuesday 13:52</li>

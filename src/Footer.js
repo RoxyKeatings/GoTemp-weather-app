@@ -1,4 +1,5 @@
 import React from "react";
+import "./Footer.css";
 export default function Footer() {
   return (
     <div className="Footer">
@@ -8,12 +9,14 @@ export default function Footer() {
           href="https://roxannekeatings.netlify.app"
           target="_blank"
           rel="noreferrer">
-          ROXANNE KEATINGS, AND IS OPEN-SOURCED ON{" "}
+          ROXANNE KEATINGS
         </a>
+        , AND IS OPEN-SOURCED ON
         <a
           href="https://github.com/RoxyKeatings/GoTemp-weather-app"
           target="_blank"
           rel="noreferrer">
+          {" "}
           GITHUB
         </a>{" "}
         AND IS HOSTED ON{" "}

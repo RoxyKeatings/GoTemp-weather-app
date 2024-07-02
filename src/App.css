@@ -1,3 +1,5 @@
 .App {
   font-family: "Overpass Mono", monospace;
+  max-width: 600px;
+  margin: 30px auto;
 }
