@@ -1,5 +1,8 @@
 .App {
+  border: 1px solid lightsalmon;
+  border-radius: 5px;
   font-family: "Overpass Mono", monospace;
   max-width: 600px;
   margin: 30px auto;
+  padding: 15px;
 }

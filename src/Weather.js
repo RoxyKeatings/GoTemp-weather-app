@@ -33,9 +33,12 @@ export default function Weather() {
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="partly cloudy"
           />
-          26°C
+          <span className="temperature">26</span>
+          <span className="unitoftemp°C">°C </span>
+          <span className="tempdivider">|</span>
+          <span className="unitoftemp°F">°F</span>
         </div>
-        <div className="col-6">
+        <div className="col-6 weather-details">
           <ul>
             <li>Precipitation: 0% </li>
             <li>Humidity: 41% </li>
