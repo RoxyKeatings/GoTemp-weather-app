@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -10,7 +11,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.city,
       country: response.data.country,
-      date: response.data.time,
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       temperature: response.data.temperature.current,
       iconUrl: `https://shecodes-assets.s3.amazonaws.com/api/${response.data.condition.icon_url}.png`,
@@ -49,7 +50,9 @@ export default function Weather(props) {
         </h1>
         <ul>
           {" "}
-          <li>{weatherData.date}</li>
+          <li>
+            <FormattedDate date={weatherData.date} />
+          </li>
           <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row">
