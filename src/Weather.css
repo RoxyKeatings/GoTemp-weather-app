@@ -8,10 +8,12 @@
   font-size: 24px;
   display: block;
   line-height: 24px;
-  color: rgba(135, 135, 135);
+  color: #5d5693;
   margin: 20px 0 0 0;
 }
 .Weather .form-search {
+  background-color: #cde9df;
+  color: #5d5693;
   padding: 15px;
   border: 1px solid rgba(135, 135, 135);
   border-radius: 5px;
@@ -19,7 +21,8 @@
 }
 .Weather .btn {
   padding: 15px;
-  border: 1px solid rgba(135, 135, 135);
+  background-color: #5d5693;
+  color: white;
   border-radius: 5px;
   width: 100%;
   text-transform: uppercase;
@@ -67,5 +70,5 @@
 }
 .Weather .col-6 ul {
   position: relative;
-  top: 60px;
+  top: 95px;
 }

@@ -17,7 +17,6 @@ export default function Weather(props) {
       description: response.data.condition.description,
       temperature: response.data.temperature.current,
       icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
-      iconDescription: response.data.icon,
       feelslike: response.data.temperature.feels_like,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
@@ -50,7 +49,7 @@ export default function Weather(props) {
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="Search" className="btn btn-warning" />
+              <input type="submit" value="Search" className="btn" />
             </div>
           </div>
         </form>
@@ -67,7 +66,7 @@ export default function Weather(props) {
         ariaLabel="vortex-loading"
         wrapperStyle={{}}
         wrapperClass="vortex-wrapper"
-        colors={["orange", "yellow", "black", "yellow", "orange", "black"]}
+        colors={["purple", "black", "purple", "black", "purple", "black"]}
       />
     );
   }
