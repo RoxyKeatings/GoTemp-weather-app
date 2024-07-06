@@ -1,8 +1,17 @@
 import React from "react";
 export default function Forecast() {
   return (
-    <div className="Forecast">
-      <h4>This is where the 5 day forecast will go</h4>
+    <div className="Forecast m-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-2">☀️</div>
+          <div className="col-2">☀️</div>
+          <div className="col-2">☀️</div>
+          <div className="col-2">☀️</div>
+          <div className="col-2">☀️</div>
+          <div className="col-2">☀️</div>
+        </div>
+      </div>
     </div>
   );
 }
