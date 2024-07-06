@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -30,53 +31,17 @@ export default function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city..."
-                className="form-search w-100"
+                className="form-search"
+                required
+                autoCapitalize
               />
             </div>
             <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-warning w-100"
-              />
+              <input type="submit" value="Search" className="btn btn-warning" />
             </div>
           </div>
         </form>
-
-        <h1>
-          <span className="city">{weatherData.city}</span>
-          {","}
-          <span className="country">{weatherData.country}</span>
-        </h1>
-        <ul>
-          {" "}
-          <li>
-            <FormattedDate date={weatherData.date} />
-          </li>
-          <li className="text-capitalize">{weatherData.description}</li>
-        </ul>
-        <div className="row">
-          <div className="col-6">
-            {weatherData.icon}
-            <img src={weatherData.iconUrl} alt={weatherData.iconDescrption} />
-            <span className="temperature">
-              {Math.round(weatherData.temperature)}
-            </span>
-            <span className="unitoftemp°C">°C </span>
-            <span className="tempdivider">|</span>
-            <span className="unitoftemp°F">°F</span>
-          </div>
-          <div className="col-6 weather-details">
-            <ul>
-              <li>Feels like: {Math.round(weatherData.feelslike)}°C</li>
-              <li>
-                Humidity:{weatherData.humidity}
-                {""}%
-              </li>
-              <li> Wind: {Math.round(weatherData.wind)} km/h</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
