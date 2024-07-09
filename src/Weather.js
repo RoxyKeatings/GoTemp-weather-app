@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 import axios from "axios";
 import { Vortex } from "react-loader-spinner";
 
@@ -13,6 +14,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.city,
       country: response.data.country,
+      coordinates: response.data.coordinates,
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       temperature: response.data.temperature.current,
@@ -54,6 +56,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <Forecast city={weatherData.city} />
       </div>
     );
   } else {
