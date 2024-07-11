@@ -50,28 +50,18 @@
   height: auto;
   line-height: 64px;
 }
-.Weather .unitoftemp°C {
+.Weather .unit {
   font-size: 18px;
   font-weight: 500;
   position: relative;
   top: -32px;
-  margin-left: 6px;
+  margin-left: 2px;
   line-height: 1;
 }
-.Weather .unitoftemp°F {
-  font-size: 18px;
-  font-weight: 500;
-  position: relative;
-  top: -32px;
-  margin-left: 6px;
-  line-height: 1;
+.unit a {
+  text-decoration: none;
 }
-.Weather .tempdivider {
-  position: relative;
-  top: -32px;
-  font-weight: 700;
-  line-height: 1;
-}
+
 .Weather .col-6 ul {
   position: relative;
   top: 95px;
