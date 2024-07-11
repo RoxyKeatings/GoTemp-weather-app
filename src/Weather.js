@@ -1,49 +1,35 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import WeatherInfo from "./WeatherInfo";
-import Forecast from "./Forecast";
 import axios from "axios";
-import { Vortex } from "react-loader-spinner";
+import { Grid } from "react-loader-spinner";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
-  const [weatherData, setweatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
   function displayTemperature(response) {
     console.log(response.data);
-    setweatherData({
+    setWeatherData({
       ready: true,
-      city: response.data.city,
-      country: response.data.country,
-      coordinates: response.data.coordinates,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      temperature: response.data.temperature.current,
-      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
-      feelslike: response.data.temperature.feels_like,
-      humidity: response.data.temperature.humidity,
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      country: response.data.sys.country,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icondescription: response.data.weather[0].main,
+      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      feelslike: response.data.main.feels_like,
+      humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
     });
-  }
-  function search() {
-    const apiKey = "89b05tfca20b16d5f5e3c646e1oa37db";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios.get(apiUrl).then(displayTemperature);
-  }
-  function handleSubmit(event) {
-    event.preventDefault();
-    search(city);
-  }
-  function handleCitySearch(event) {
-    setCity(event.target.value);
   }
   if (weatherData.ready) {
     return (
       <div className="Weather p-5">
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="row">
             <div className="col-9">
               <input
-                onChange={handleCitySearch}
                 type="search"
                 placeholder="Enter a city..."
                 className="form-search"
@@ -55,22 +41,57 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <WeatherInfo data={weatherData} />
-        <Forecast city={weatherData.city} />
+        <div className="WeatherInfo">
+          <h1>
+            <span className="city">{weatherData.city}</span>
+            {","}
+            <span className="country">{weatherData.country}</span>
+          </h1>
+          <ul>
+            {" "}
+            <li>
+              <FormattedDate date={weatherData.date} />
+            </li>
+            <li className="text-capitalize">{weatherData.description}</li>
+          </ul>
+          <div className="row">
+            <div className="col-6">
+              <img
+                src={weatherData.iconUrl}
+                alt={weatherData.icondescription}
+              />
+              <h1 className="current-temp">
+                {Math.round(weatherData.temperature)}°
+              </h1>
+            </div>
+            <div className="col-6 weather-details">
+              <ul>
+                <li>Feels like:{Math.round(weatherData.feelslike)}°C</li>
+                <li>Humidity: 25%</li>
+                <li> Wind: {weatherData.wind} km/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
-    search();
+    const apiKey = "1270a595e9f33378eae69b900458b3bd";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
     return (
-      <Vortex
-        visible={true}
-        height="100"
-        width="100"
-        ariaLabel="vortex-loading"
-        wrapperStyle={{}}
-        wrapperClass="vortex-wrapper"
-        colors={["purple", "black", "purple", "black", "purple", "black"]}
-      />
+      <div>
+        <Grid
+          visible={true}
+          height="80"
+          width="80"
+          color="#afa5f8"
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass="grid-wrapper"
+        />
+      </div>
     );
   }
 }

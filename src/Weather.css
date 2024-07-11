@@ -39,7 +39,7 @@
 .Weather img {
   display: flex;
 }
-.Weather .temperature {
+.Weather .current-temp {
   font-weight: 600;
   font-size: 64px;
   height: auto;
