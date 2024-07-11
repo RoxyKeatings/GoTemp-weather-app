@@ -9,7 +9,7 @@
   display: block;
   line-height: 24px;
   color: #5d5693;
-  margin: 20px 0 0 0;
+  margin: 10px 0 0 0;
 }
 .Weather .form-search {
   background-color: #cde9df;
@@ -36,10 +36,15 @@
   line-height: 20px;
   list-style: none;
 }
-.Weather img {
-  display: flex;
+.Weather canvas {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  margin: 5px;
+  margin-left: 15px;
 }
 .Weather .current-temp {
+  color: black;
   font-weight: 600;
   font-size: 64px;
   height: auto;
