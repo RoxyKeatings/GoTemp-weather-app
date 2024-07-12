@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import { Grid } from "react-loader-spinner";
+import Forecast from "./Forecast";
 
 import WeatherInfo from "./WeatherInfo";
 
@@ -12,6 +13,7 @@ export default function Weather(props) {
     console.log(response.data);
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       city: response.data.name,
       country: response.data.sys.country,
@@ -56,6 +58,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
@@ -63,8 +66,8 @@ export default function Weather(props) {
     return (
       <Grid
         visible={true}
-        height="150"
-        width="150"
+        height="250"
+        width="250"
         color="black"
         ariaLabel="grid-loading"
         radius="12.5"
