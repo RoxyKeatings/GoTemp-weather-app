@@ -6,3 +6,11 @@
 .Forecast-temp-min {
   opacity: 0.6;
 }
+@media (max-width: 900px) {
+  .Forecast-container {
+    font-size: 12px;
+    text-align: center;
+    margin: 5px;
+    margin-top: 50px;
+  }
+}

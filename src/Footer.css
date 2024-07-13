@@ -4,5 +4,8 @@ footer {
   text-align: center;
 }
 footer a {
+  color: #5d5693;
+}
+footer a:hover {
   color: black;
 }

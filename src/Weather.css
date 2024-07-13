@@ -1,6 +1,6 @@
 .Weather {
   border-radius: 5px;
-  margin: 25px auto;
+  margin: 0 auto;
   padding: 16px;
 }
 .Weather h1 {
@@ -58,11 +58,44 @@
   margin-left: 2px;
   line-height: 1;
 }
+
 .unit a {
   text-decoration: none;
+  color: #5d5693;
 }
 
 .Weather .col-6 ul {
   position: relative;
   top: 85px;
+}
+@media (max-width: 900px) {
+  .Weather h1 {
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    line-height: 24px;
+    color: #5d5693;
+    margin: 10px 0 0 0;
+  }
+  .WeatherInfo li {
+    font-size: 14px;
+  }
+  .Weather .current-temp {
+    color: black;
+    font-weight: 600;
+    font-size: 40px;
+    height: auto;
+    line-height: 64px;
+  }
+  .Weather .unit {
+    font-size: 10px;
+    font-weight: 300;
+    position: relative;
+    top: -16px;
+    margin-left: 2px;
+    line-height: 1;
+  }
+  .weather-details li {
+    font-size: 14px;
+  }
 }
